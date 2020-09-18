@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import CountUp from 'react-countup';
+
 import { useParams, Link } from "react-router-dom";
 
 
@@ -27,25 +29,28 @@ export const Country = () => {
         setDeaths(response[0].deaths)
         setRecovered(response[0].recovered)
         setLastChange(response[0].lastChange)
+
       })
+
       .then((response) => {
         console.log(response);
         console.log(country)
-        console.log(response[0].deaths)
-        console.log(response[0].recovered)
-        console.log(response[0].lastUpdate)
+        console.log(deaths)
+        console.log(recovered)
+        console.log(lastChange)
       })
       .catch(err => {
         console.log(err);
       })
+    setName('')
   }
   return (
     <section>
       <div>
         <h1>hello</h1>
         <form onSubmit={(event) => {
-          onChosen(name)
           event.preventDefault()
+          onChosen(name)
         }}>
           <label>
             <input
@@ -53,18 +58,34 @@ export const Country = () => {
               type='text'
               value={name}
               placeholder='Enter country'
-              onChange={(event) => setName(event.target.value)}
+              onChange={(event) => {
+                event.preventDefault()
+                setName(event.target.value)
+              }}
             />
+            <button >check</button>
           </label>
+
+
+
         </form>
       </div>
-      <div>
+      {country && <div>
 
         <p>{country}</p>
-        <p>{deaths}</p>
-        <p>{recovered}</p>
+        <p>Deaths:</p>
+        <CountUp
+          end={deaths}
+          duration={4} />
+        <p>Recovered:</p>
+        <CountUp
+          end={recovered}
+          duration={4} />
         <p>{lastChange}</p>
+
+
       </div>
+      }
     </section>
   )
 }
