@@ -1,0 +1,138 @@
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700;800&family=Roboto:wght@300;400&display=swap);
+$layout-breakpoint-small: 960px;
+$layout-breakpoint-medium: 768px;
+$layout-breakpoint-large: 1024px;
+ 
+
+body {
+  background: #424650;
+
+}
+
+%headline {
+  color: #DBA38B;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: 3rem;;
+
+}
+
+h1 {
+  @extend %headline; 
+  font-weight: normal;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #cdd7e8;
+  margin-top: 0;
+}
+
+h3 {
+  @extend %headline;
+  font-weight: normal;
+  font-size: 1.6rem;
+}
+
+.header {
+ 
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+   h1 {
+ @extend %headline;
+  
+  }
+}
+
+.numbers {
+  color: white;
+  font-size: 3rem;
+}
+
+.totals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+}
+
+@media (min-width: $layout-breakpoint-medium){
+  .totals {
+    flex-direction: row; 
+    justify-content: space-evenly; 
+  }
+}
+
+article {
+  box-sizing: border-box;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid white;
+  padding: 15px 20px 20px 20px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: $layout-breakpoint-medium){
+  article {
+    width: 26%; 
+  }
+}
+
+.countrySection {
+  width: 100%;
+ 
+}
+
+.countryData {
+  display: flex;
+  flex-direction: column;
+  margin-left:10%;
+}
+
+@media (min-width: $layout-breakpoint-medium){
+  .countryData {
+    margin-left: 5%; 
+  }
+}
+
+.country {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  align-items: center;;
+
+}
+
+.inputField {
+  
+}
+
+
+input {
+  width: 300px;
+  height: 50px;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  background: #cdd7e8;
+}
+
+button {
+margin-left: 20px;
+height: 50px;
+
+}
+// #828591 ljusgrå
+// #dba38b corall
+// #424650 mörkgrå
+// #cdd7e8 ljustblå
+
+// font-family: 'Lato', sans-serif;
+// font-family: 'Playfair Display', serif;
+// font-family: 'Roboto', sans-serif;

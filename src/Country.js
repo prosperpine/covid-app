@@ -6,10 +6,11 @@ import { useParams, Link } from "react-router-dom";
 
 
 export const Country = () => {
-
+  const moment = require('moment');
   const [name, setName] = useState('')
   const [country, setCountry] = useState('')
   const [deaths, setDeaths] = useState('')
+  const [confirmed, setConfirmed] = useState('')
   const [recovered, setRecovered] = useState('')
   const [lastChange, setLastChange] = useState('')
 
@@ -27,12 +28,13 @@ export const Country = () => {
       .then((response) => {
         setCountry(response[0].country)
         setDeaths(response[0].deaths)
+        setConfirmed(response[0].confirmed)
         setRecovered(response[0].recovered)
         setLastChange(response[0].lastChange)
 
-      })
 
-      .then((response) => {
+
+
         console.log(response);
         console.log(country)
         console.log(deaths)
@@ -45,15 +47,16 @@ export const Country = () => {
     setName('')
   }
   return (
-    <section>
-      <div>
-        <h1>hello</h1>
+    <section className="country">
+      <div className="inputField">
+        <h3>Enter name of country for details.</h3>
         <form onSubmit={(event) => {
           event.preventDefault()
           onChosen(name)
         }}>
           <label>
             <input
+              className="input"
               required
               type='text'
               value={name}
@@ -63,26 +66,43 @@ export const Country = () => {
                 setName(event.target.value)
               }}
             />
-            <button >check</button>
+            <button type="submit">check</button>
           </label>
-
-
-
         </form>
       </div>
-      {country && <div>
+      {country && <div className="countrySection">
+        <div className="countryData">
+          <h1>{country}</h1>
+          <h2>Updated: {moment(lastChange).format('YYYY-MM-DD HH:MM')}</h2>
+        </div>
+        <div className="totals">
+          <article>
+            <h2>Confirmed cases:</h2>
+            <CountUp
+              className="numbers"
+              end={confirmed}
+              separator=" "
+              duration={4} />
+          </article>
 
-        <p>{country}</p>
-        <p>Deaths:</p>
-        <CountUp
-          end={deaths}
-          duration={4} />
-        <p>Recovered:</p>
-        <CountUp
-          end={recovered}
-          duration={4} />
-        <p>{lastChange}</p>
+          <article>
+            <h2>Recovered:</h2>
+            <CountUp
+              className="numbers"
+              end={recovered}
+              separator=" "
+              duration={4} />
+          </article>
+          <article>   <h2>Deaths:</h2>
+            <CountUp
+              className="numbers"
+              end={deaths}
+              separator=" "
+              duration={4} />
+          </article>
 
+
+        </div>
 
       </div>
       }
