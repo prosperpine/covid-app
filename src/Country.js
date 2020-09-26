@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import CountUp from 'react-countup';
-
-import { useParams, Link } from "react-router-dom";
-
-
 
 export const Country = () => {
   const moment = require('moment');
@@ -21,7 +17,7 @@ export const Country = () => {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-        "x-rapidapi-key": "1e4b307fbemsh2a973cee1729cf8p1336a7jsnc52bf2386738"
+        "x-rapidapi-key": '1e4b307fbemsh2a973cee1729cf8p1336a7jsnc52bf2386738'
       }
     })
       .then((response) => response.json())
@@ -31,15 +27,6 @@ export const Country = () => {
         setConfirmed(response[0].confirmed)
         setRecovered(response[0].recovered)
         setLastChange(response[0].lastChange)
-
-
-
-
-        console.log(response);
-        console.log(country)
-        console.log(deaths)
-        console.log(recovered)
-        console.log(lastChange)
       })
       .catch(err => {
         console.log(err);
@@ -70,42 +57,38 @@ export const Country = () => {
           </label>
         </form>
       </div>
-      {country && <div className="countrySection">
-        <div className="countryData">
-          <h1>{country}</h1>
-          <h2>Updated: {moment(lastChange).format('YYYY-MM-DD HH:MM')}</h2>
-        </div>
-        <div className="totals">
-          <article>
-            <h2>Confirmed cases:</h2>
-            <CountUp
-              className="numbers"
-              end={confirmed}
-              separator=" "
-              duration={4} />
-          </article>
-
-          <article>
-            <h2>Recovered:</h2>
-            <CountUp
-              className="numbers"
-              end={recovered}
-              separator=" "
-              duration={4} />
-          </article>
-          <article>   <h2>Deaths:</h2>
-            <CountUp
-              className="numbers"
-              end={deaths}
-              separator=" "
-              duration={4} />
-          </article>
-
-
-        </div>
-
-      </div>
-      }
+      {country &&
+        <div className="countrySection">
+          <div className="countryData">
+            <h1>{country}</h1>
+            <h2>Updated: {moment(lastChange).format('YYYY-MM-DD HH:MM')}</h2>
+          </div>
+          <div className="totals">
+            <article>
+              <h2>Confirmed cases:</h2>
+              <CountUp
+                className="numbers"
+                end={confirmed}
+                separator=" "
+                duration={4} />
+            </article>
+            <article>
+              <h2>Recovered:</h2>
+              <CountUp
+                className="numbers"
+                end={recovered}
+                separator=" "
+                duration={4} />
+            </article>
+            <article>   <h2>Deaths:</h2>
+              <CountUp
+                className="numbers"
+                end={deaths}
+                separator=" "
+                duration={4} />
+            </article>
+          </div>
+        </div>}
     </section>
   )
 }

@@ -5,8 +5,6 @@ export const Total = () => {
   const [totalDeaths, setTotalDeaths] = useState('')
   const [totalConfirmed, setTotalConfirmed] = useState('')
   const [totalRecovered, setTotalRecovered] = useState('')
-  const [toatalLastChange, setTotalLastChange] = useState('')
-
 
   useEffect(() => {
     fetch("https://covid-19-data.p.rapidapi.com/totals?format=json", {

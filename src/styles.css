@@ -80,6 +80,9 @@ article {
   border: 2px solid white;
   padding: 15px 20px 20px 20px;
   margin-bottom: 40px;
+  -webkit-box-shadow: 13px 10px 15px -3px whitesmoke;
+          box-shadow: 13px 10px 15px -3px whitesmoke;
+  border-radius: 6px;
 }
 
 @media (min-width: 768px) {
@@ -128,11 +131,14 @@ input {
   height: 50px;
   border-radius: 4px;
   font-size: 1.6rem;
-  background: #cdd7e8;
+  background: whitesmoke;
+  padding-left: 10px;
 }
 
 button {
   margin-left: 20px;
-  height: 50px;
+  height: 66px;
+  padding: 12px;
+  border-radius: 50%;
 }
 /*# sourceMappingURL=styles.css.map */
