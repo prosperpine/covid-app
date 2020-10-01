@@ -1,11 +1,5 @@
-# React.js template
+# Covid-19 Count-Up
 
-This template has been generated using `create-react-app`, then cleaned up a little.
+This web app is built in React using a public API to easily give you access to the latest numbers regarding Covid-19. Use the search field to find details from a specifi country. 
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
-
-## Features
-* Styled components
-* React router
-* React hooks
-* Eslint
+See it live: https://musing-almeida-8b62f3.netlify.app/
