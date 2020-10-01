@@ -27,6 +27,11 @@ h3 {
   font-size: 1.6rem;
 }
 
+p {
+  font-family: 'Roboto', sans-serif;
+  color: #cdd7e8;
+}
+
 .header {
   width: 100%;
   text-align: center;
@@ -140,5 +145,12 @@ button {
   height: 66px;
   padding: 12px;
   border-radius: 50%;
+  background-color: whitesmoke;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 50px;
 }
 /*# sourceMappingURL=styles.css.map */
